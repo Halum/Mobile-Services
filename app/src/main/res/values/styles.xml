@@ -3,6 +3,56 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/action_bar_background</item>
+        <item name="android:backgroundStacked">@color/action_bar_tab_color</item>
+        <item name="android:backgroundSplit">@color/action_bar_tab_indicator</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@color/action_bar_background</item>
+        <item name="backgroundStacked">@color/action_bar_tab_color</item>
+        <item name="backgroundSplit">@color/action_bar_tab_indicator</item>
+    </style>
+
+    <style name="MyActionBarTabBar" parent="@style/Widget.AppCompat.ActionBar.TabBar">
+        <item name="android:showDividers">middle</item>
+        <!-- give your divider here -->
+        <item name="android:divider">@color/action_bar_tab_indicator</item>
+
+        <item name="showDividers">middle</item>
+        <!-- give your divider here -->
+        <item name="divider">@color/action_bar_tab_indicator</item>
+    </style>
+
+    <!-- -->
+
+<!-- ################################################################ -->
+
+    <!-- style for headers -->
+    <style name="HeadingStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- style for each row (LinearLayout) -->
+    <style name="Row">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">100</item>
+    </style>
+
+    <!-- style for row cells (button, space) -->
+    <style name="Cell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>

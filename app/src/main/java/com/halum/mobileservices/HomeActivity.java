@@ -1,5 +1,12 @@
 package com.halum.mobileservices;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentTransaction;
@@ -7,19 +14,151 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeActivity extends ActionBarActivity implements ActionBar.TabListener {
 
-    TabaPagerAdapter adapter;
-    ViewPager pager;
+    private TabPagerAdapter adapter;
+    private ViewPager pager;
+    private EditText fieldForPhoneNumber;
+
+    private static final int CONTACT_PICKER_RESULT = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Constants.generateDatabase();
         this.createTabs();
+    }
+
+    public void getContact(View button){
+        String tag = button.getTag().toString();
+        this.fieldForPhoneNumber = this.getTextField(tag);
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent, this.CONTACT_PICKER_RESULT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case CONTACT_PICKER_RESULT:
+                if(resultCode == Activity.RESULT_OK){
+                    Cursor cur = null;
+                    String phoneNumber = "";
+                    List<String> allNumbers = new ArrayList<String>();
+                    int phoneIdx = 0;
+                    try {
+                        Uri contactData = data.getData();
+                        String id = contactData.getLastPathSegment();
+                        cur = getContentResolver().query(
+                                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=?",
+                                new String[]{id}, null);
+                        phoneIdx = cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DATA);
+                        if(cur.moveToFirst()){
+                            while(!cur.isAfterLast()){
+                                phoneNumber = cur.getString(phoneIdx);
+                                allNumbers.add(phoneNumber);
+                                cur.moveToNext();
+                            }
+                        }else{
+                            alert("Contact has no number");
+                        }
+                    }catch (Exception ex){
+                        alert("Can't get contact number");
+                    }finally {
+                        if(cur!=null){
+                            cur.close();
+                        }
+
+                        final CharSequence[] items = allNumbers.toArray(new String[allNumbers.size()]);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setTitle("Choose a number:");
+                        builder.setItems(items, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int item) {
+                                String selectedNumber = items[item].toString();
+                                selectedNumber = selectedNumber.replace("-", "");
+                                fieldForPhoneNumber.setText(selectedNumber);
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        if(allNumbers.size() > 1){
+                            dialog.show();
+                        }else{
+                            String selectedNumber = phoneNumber.toString();
+                            selectedNumber = selectedNumber.replace("-", "");
+                            fieldForPhoneNumber.setText(selectedNumber);
+                        }
+
+                        if (phoneNumber.length() == 0) {
+                            alert("No number found");
+                        }
+                    }
+                }
+        }
+    }
+
+    public void getService(View button){
+        try {
+            String tag = button.getTag().toString();
+            String USSD = this.makeUSSDString(tag);
+            if (this.isDependentOnTextField(tag)) {
+                String number = this.getTextFieldData(tag);
+                USSD += number;
+            }
+            this.requestServiceCall(USSD);
+        }catch (Exception ex){
+            alert("Service not available");
+        }
+    }
+
+    private void requestServiceCall(String USSD){
+        // @TODO delete # and uncomment
+        USSD += "#";//Uri.encode("#");
+        alert(USSD);
+        if(USSD.contains("null")) alert("no data");
+        //startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(USSD)));
+    }
+
+    private String makeUSSDString(String tag){
+        String USSD = "tel:";
+        USSD += Constants.DATABASE.get(tag);
+        return USSD;
+    }
+
+    private String getTextFieldData(String tag){
+        EditText textField = this.getTextField(tag);
+        String number = textField.getText().toString();
+
+        return number;
+    }
+
+    private EditText getTextField(String tag){
+        int textFieldId = getResources().getIdentifier(tag, "id", getPackageName());
+        EditText textField = (EditText) findViewById(textFieldId);
+
+        return textField;
+    }
+
+    private void alert(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean isDependentOnTextField(String tag){
+        if(tag.contains("balance") || tag.contains("my_number"))
+            return false;
+        return true;
     }
 
     private void createTabs(){
@@ -29,7 +168,7 @@ public class HomeActivity extends ActionBarActivity implements ActionBar.TabList
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        adapter = new TabaPagerAdapter(getSupportFragmentManager());
+        adapter = new TabPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the tabs adapter.
         pager = (ViewPager) findViewById(R.id.pager);
@@ -54,24 +193,25 @@ public class HomeActivity extends ActionBarActivity implements ActionBar.TabList
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.menu_home_settings:
+                break;
+            case R.id.menu_home_help:
+                break;
+            case R.id.menu_home_about:
+                break;
+            case R.id.menu_home_update:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

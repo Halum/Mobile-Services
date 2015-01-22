@@ -1,6 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_home_settings"
+        android:title="Settings"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_home_help"
+        android:title="Help"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_home_update"
+        android:title="About"
+        android:orderInCategory="3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_home_about"
+        android:title="About"
+        android:orderInCategory="4"
+        app:showAsAction="never" />
+
 </menu>

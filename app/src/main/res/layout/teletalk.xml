@@ -1,15 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:background="#ff6365fa">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:text="TeleTalk"
-        android:textSize="20sp"/>
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <!--
+        ** Start of ACCOUNT section
+        -->
+        <TextView
+            style="@style/HeadingStyle"
+            android:text="Account:"/>
+        <LinearLayout
+            style="@style/Row">
+            <EditText
+                style="@style/Cell"
+                android:inputType="number"
+                android:id="@+id/ttalk_recharge"
+                android:layout_weight="60"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="35"
+                android:onClick="getService"
+                android:tag="ttalk_recharge"
+                android:text="Recharge"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="ttalk_check_balance"
+                android:text="Balance"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="ttalk_my_number"
+                android:text="My Number"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <!--
+        ** Start of EMERGENCY BALANCE section
+        -->
+        <TextView
+            style="@style/HeadingStyle"
+            android:text="Emergency Balance:"/>
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="ttalk_get_emergency_balance"
+                android:text="Get Balance"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="ttalk_check_emergency_balance"
+                android:text="Check Balance"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+        </LinearLayout>
+        <!--
+        ** Start of CALL BACK section
+        -->
+        <TextView
+            style="@style/HeadingStyle"
+            android:text="Call Back:"/>
+        <LinearLayout
+            style="@style/Row">
+            <EditText
+                style="@style/Cell"
+                android:inputType="number"
+                android:id="@+id/ttalk_callback"
+                android:layout_weight="60"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="35"
+                android:text="Phone Book"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="40"
+                android:tag="ttalk_callback"
+                android:onClick="getService"
+                android:text="Call Back"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <!--
+        ** Start of FNF section
+        -->
+        <!--TextView
+            style="@style/HeadingStyle"
+            android:text="Friends &amp; Family:"/>
+        <LinearLayout
+            style="@style/Row">
+            <EditText
+                style="@style/Cell"
+                android:inputType="number"
+                android:layout_weight="60"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="35"
+                android:text="Phone Book"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/Cell"
+                android:layout_weight="2.5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="30"
+                android:text="Add"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="2.5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="30"
+                android:text="Delete"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="2.5"/>
+            <Button
+                style="@style/Cell"
+                android:layout_weight="30"
+                android:text="Check"/>
+            <Space
+                style="@style/Cell"
+                android:layout_weight="2.5"/>
+        </LinearLayout-->
+
+
+    </LinearLayout>
+</ScrollView>
