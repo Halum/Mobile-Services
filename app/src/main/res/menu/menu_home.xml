@@ -3,21 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeActivity">
     <item
         android:id="@+id/menu_home_settings"
+        android:icon="@android:drawable/ic_menu_preferences"
         android:title="Settings"
-        android:orderInCategory="1"
-        app:showAsAction="never" />
+        android:orderInCategory="2"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_home_help"
+        android:icon="@android:drawable/ic_menu_help"
         android:title="Help"
-        android:orderInCategory="2"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_home_update"
-        android:title="About"
         android:orderInCategory="3"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_home_update"
+        android:icon="@android:drawable/stat_notify_sync_noanim"
+        android:title="Update"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/menu_home_about"
+        android:icon="@android:drawable/ic_menu_info_details"
         android:title="About"
         android:orderInCategory="4"
         app:showAsAction="never" />

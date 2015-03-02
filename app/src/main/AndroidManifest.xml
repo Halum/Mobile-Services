@@ -8,16 +8,28 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="Mobile Services"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".HomeActivity"
-            android:label="Mobile Services"
+            android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ServiceSettings"
+            android:label="Settings" >
+        </activity>
+        <activity
+            android:name=".Help"
+            android:label="@string/title_activity_help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.halum.mobileservices.HomeActivity" />
         </activity>
     </application>
 

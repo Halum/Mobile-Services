@@ -2,6 +2,7 @@ package com.halum.mobileservices;
 
 import android.provider.ContactsContract;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,44 +11,70 @@ import java.util.Map;
  */
 public class Constants {
     public static enum A {GP, BLink};
-    public static String GP = "GrameenPhone";
-    public static String BLink = "BanglaLink";
-    public static String Airtel = "Airtel";
-    public static String TTalk = "TeleTalk";
-    public static String Robi = "Robi";
+    public static String GP = "Grameenphone";
+    public static String BLINK = "Banglalink";
+    public static String AIRTEL = "Airtel";
+    public static String TTALK = "Teletalk";
+    public static String ROBI = "Robi";
+    public static String BANKS = "Banks";
 
     public static Map<String, String> DATABASE = new HashMap<String, String>();
+    public static ArrayList<String> ACTIVE_OPERATORS = new ArrayList<String>();
+    public static ArrayList<String> OPERATORS = new ArrayList<String>();
 
     public static void generateDatabase(){
-        DATABASE.put("gp_my_number", "*2");
-        DATABASE.put("airtel_my_number", "*121*6*3");
-        DATABASE.put("blink_my_number", "*511");
-        DATABASE.put("robi_my_number", "*140*2*4");
-        //DATABASE.put("ttalk_my_number", "tar 222");
+        // ADD ALL OPERATORS FOR TABS
+        OPERATORS.clear();
+        OPERATORS.add(GP);
+        OPERATORS.add(AIRTEL);
+        OPERATORS.add(BLINK);
+        OPERATORS.add(ROBI);
+        OPERATORS.add(TTALK);
+        OPERATORS.add(BANKS);
 
-        DATABASE.put("gp_check_balance", "*566");
-        DATABASE.put("airtel_check_balance", "*778");
-        DATABASE.put("blink_check_balance", "*124");
-        DATABASE.put("robi_check_balance", "*222");
-        DATABASE.put("ttalk_check_balance", "*152");
+        // BANKS DATA
+        DATABASE.put("bKash", "*247");
+        DATABASE.put("DBBL", "*");
+        DATABASE.put("UCash", "*");
 
-        DATABASE.put("gp_recharge", "*555*");
-        DATABASE.put("airtel_recharge", "*787*");
-        DATABASE.put("blink_recharge", "*123*");
-        DATABASE.put("robi_recharge", "*111*");
-        DATABASE.put("ttalk_recharge", "*151*");
+        DATABASE.put(GP+"_my_number", "*2");
+        DATABASE.put(AIRTEL+"_my_number", "*121*6*3");
+        DATABASE.put(BLINK+"_my_number", "*511");
+        DATABASE.put(ROBI+"_my_number", "*140*2*4");
+        //DATABASE.put("_my_number", "tar 222");
+
+        DATABASE.put(GP+"_check_balance", "*566");
+        DATABASE.put(AIRTEL+"_check_balance", "*778");
+        DATABASE.put(BLINK+"_check_balance", "*124");
+        DATABASE.put(ROBI+"_check_balance", "*222");
+        DATABASE.put(TTALK+"_check_balance", "*152");
+
+        DATABASE.put(GP+"_recharge", "*555*");
+        DATABASE.put(AIRTEL+"_recharge", "*787*");
+        DATABASE.put(BLINK+"_recharge", "*123*");
+        DATABASE.put(ROBI+"_recharge", "*111*");
+        DATABASE.put(TTALK+"_recharge", "*151*");
 
 
-        DATABASE.put("gp_callback", "*123*");
+        DATABASE.put(GP+"_callback", "*123*");
+        DATABASE.put(BLINK+"_callback", "*126*");
+        DATABASE.put(AIRTEL+"_callback", "*121*5");
 
-        DATABASE.put("gp_get_emergency_balance", "*1010*1");
+        DATABASE.put(GP+"_get_emergency_balance", "*1010*1");
+        DATABASE.put(BLINK+"_get_emergency_balance", "*874");
+        // @TODO airtel ahas another 10tk loan
+        DATABASE.put(AIRTEL+"_get_emergency_balance", "*141*10*1");
+        DATABASE.put(ROBI+"_get_emergency_balance", "*8811*1");
 
-        DATABASE.put("gp_check_emergency_balance", "*566*28");
+        DATABASE.put(GP+"_check_emergency_balance", "*566*28");
+        DATABASE.put(ROBI+"_check_emergency_balance", "*222*16");
+        DATABASE.put(BLINK+"_check_emergency_balance", "*124");
+        DATABASE.put(AIRTEL+"_check_emergency_balance", "*778");
 
-        DATABASE.put("gp_add_fnf", "*111*2*1*2*");
+        DATABASE.put(GP+"_add_fnf", "*111*2*1*2*");
 
-        DATABASE.put("gp_delete_fnf", "");
+        DATABASE.put(GP+"_delete_fnf", "");
 
-        DATABASE.put("gp_check_fnf", "*111*2*1*1");
+        DATABASE.put(GP+"_check_fnf", "*111*2*1*1");
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Operators">
+        <SwitchPreference
+            android:key="Airtel"
+            android:defaultValue="true"
+            android:title="Airtel" />
+        <SwitchPreference
+            android:key="Banglalink"
+            android:defaultValue="true"
+            android:title="Banglalink" />
+        <SwitchPreference
+            android:key="Grameenphone"
+            android:defaultValue="true"
+            android:title="Grameenphone" />
+        <SwitchPreference
+            android:key="Robi"
+            android:defaultValue="true"
+            android:title="Robi" />
+        <SwitchPreference
+            android:key="Teletalk"
+            android:defaultValue="true"
+            android:title="Teletalk" />
+        <SwitchPreference
+            android:key="Banks"
+            android:defaultValue="true"
+            android:title="Mobile Banks" />
+    </PreferenceCategory>
+</PreferenceScreen>

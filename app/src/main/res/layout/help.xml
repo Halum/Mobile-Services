@@ -1,0 +1,75 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/HelpTextNumberStyle"
+                android:text="1."/>
+            <TextView
+                style="@style/HelpTextStyle"
+                android:text="@string/help_1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/HelpTextNumberStyle"
+                android:text="2."/>
+            <TextView
+                style="@style/HelpTextStyle"
+                android:text="@string/help_2" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/HelpTextNumberStyle"
+                android:text="3."/>
+            <TextView
+                style="@style/HelpTextStyle"
+                android:text="@string/help_3" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/HelpTextNumberStyle"
+                android:text="4."/>
+            <TextView
+                style="@style/HelpTextStyle"
+                android:text="@string/help_4" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/HelpTextNumberStyle"
+                android:text="5."/>
+            <TextView
+                style="@style/HelpTextStyle"
+                android:text="@string/help_5" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

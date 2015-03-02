@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mobile Services</string>
+    <string name="call_back">Call Back</string>
+    <string name="contacts">Phone Book</string>
+    <string name="recharge">Recharge</string>
+    <string name="account_balance">Balance</string>
+    <string name="mobile_number">My Number</string>
+    <string name="emergency_balance">Get Balance</string>
+    <string name="check_emergency_balance">Check Balance</string>
+    <string name="account_header">Account:</string>
+    <string name="emergency_balance_header">Emergency Balance:</string>
+    <string name="call_back_header">Call Back:</string>
+    <string name="fnf_header">Friends &amp; Family:</string>
+    <string name="title_activity_help">Help</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="help_1">
+        Initially all operators are set on.
+    </string>
+    <string name="help_2">
+        Go to settings to set only the operators you need.
+    </string>
+    <string name="help_3">
+        Swipe between tabs to get desired operator.
+    </string>
+    <string name="help_4">
+        Click the button of service you need.
+    </string>
+    <string name="help_5">
+        Press and hold a button to get service code if needed.
+    </string>
+
+
+</resources>

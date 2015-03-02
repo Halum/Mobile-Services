@@ -2,7 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -12,54 +12,54 @@
         -->
         <TextView
             style="@style/HeadingStyle"
-            android:text="Account:"/>
+            android:text="@string/account_header"/>
         <LinearLayout
             style="@style/Row">
             <EditText
-                style="@style/Cell"
+                style="@style/textfield_style"
                 android:inputType="number"
-                android:id="@+id/airtel_recharge"
+                android:id="@+id/Airtel_recharge"
                 android:layout_weight="60"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="5"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="35"
                 android:onClick="getService"
-                android:tag="airtel_recharge"
-                android:text="Recharge"/>
+                android:tag="Airtel_recharge"
+                android:text="@string/recharge"/>
         </LinearLayout>
 
         <LinearLayout
             style="@style/Row">
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="40"
                 android:onClick="getService"
-                android:tag="airtel_check_balance"
-                android:text="Balance"/>
+                android:tag="Airtel_check_balance"
+                android:text="@string/account_balance"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
         </LinearLayout>
 
         <LinearLayout
             style="@style/Row">
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="40"
                 android:onClick="getService"
-                android:tag="airtel_my_number"
-                android:text="My Number"/>
+                android:tag="Airtel_my_number"
+                android:text="@string/mobile_number"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
         </LinearLayout>
 
@@ -68,36 +68,36 @@
         -->
         <TextView
             style="@style/HeadingStyle"
-            android:text="Emergency Balance:"/>
+            android:text="@string/emergency_balance_header"/>
         <LinearLayout
             style="@style/Row">
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="40"
                 android:onClick="getService"
-                android:tag="airtel_get_emergency_balance"
-                android:text="Get Balance"/>
+                android:tag="Airtel_get_emergency_balance"
+                android:text="@string/emergency_balance"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
         </LinearLayout>
 
         <LinearLayout
             style="@style/Row">
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="40"
                 android:onClick="getService"
-                android:tag="airtel_check_emergency_balance"
-                android:text="Check Balance"/>
+                android:tag="Airtel_check_emergency_balance"
+                android:text="@string/check_emergency_balance"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
         </LinearLayout>
         <!--
@@ -105,88 +105,44 @@
         -->
         <TextView
             style="@style/HeadingStyle"
-            android:text="Call Back:"/>
+            android:text="@string/call_back_header"/>
         <LinearLayout
             style="@style/Row">
             <EditText
-                style="@style/Cell"
+                style="@style/textfield_style"
                 android:inputType="number"
-                android:id="@+id/airtel_callback"
+                android:id="@+id/Airtel_callback"
                 android:layout_weight="60"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="5"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="35"
-                android:text="Phone Book"/>
+                android:onClick="getNumberFromContact"
+                android:tag="Airtel_callback"
+                android:text="@string/contacts"/>
         </LinearLayout>
 
         <LinearLayout
             style="@style/Row">
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
             <Button
-                style="@style/Cell"
+                style="@style/button_style"
                 android:layout_weight="40"
-                android:tag="airtel_callback"
+                android:tag="Airtel_callback"
                 android:onClick="getService"
-                android:text="Call Back"/>
+                android:text="@string/call_back"/>
             <Space
-                style="@style/Cell"
+                style="@style/space_style"
                 android:layout_weight="30"/>
         </LinearLayout>
 
         <!--
         ** Start of FNF section
         -->
-        <!--TextView
-            style="@style/HeadingStyle"
-            android:text="Friends &amp; Family:"/>
-        <LinearLayout
-            style="@style/Row">
-            <EditText
-                style="@style/Cell"
-                android:inputType="number"
-                android:layout_weight="60"/>
-            <Space
-                style="@style/Cell"
-                android:layout_weight="5"/>
-            <Button
-                style="@style/Cell"
-                android:layout_weight="35"
-                android:text="Phone Book"/>
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/Row">
-            <Space
-                style="@style/Cell"
-                android:layout_weight="2.5"/>
-            <Button
-                style="@style/Cell"
-                android:layout_weight="30"
-                android:text="Add"/>
-            <Space
-                style="@style/Cell"
-                android:layout_weight="2.5"/>
-            <Button
-                style="@style/Cell"
-                android:layout_weight="30"
-                android:text="Delete"/>
-            <Space
-                style="@style/Cell"
-                android:layout_weight="2.5"/>
-            <Button
-                style="@style/Cell"
-                android:layout_weight="30"
-                android:text="Check"/>
-            <Space
-                style="@style/Cell"
-                android:layout_weight="2.5"/>
-        </LinearLayout-->
-
 
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,71 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--
+        ** Start of ACCOUNT section
+        -->
+        <TextView
+            style="@style/HeadingStyle"
+            android:text="@string/account_header"/>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/button_style"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="bKash"
+                android:text="bKash"/>
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/button_style"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="DBBL"
+                android:text="DBBL"/>
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row">
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+            <Button
+                style="@style/button_style"
+                android:layout_weight="40"
+                android:onClick="getService"
+                android:tag="UCash"
+                android:text="UCash"/>
+            <Space
+                style="@style/space_style"
+                android:layout_weight="30"/>
+        </LinearLayout>
+
+        <!--
+        ** Start of FNF section
+        -->
+
+    </LinearLayout>
+</ScrollView>

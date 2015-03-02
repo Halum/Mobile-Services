@@ -1,10 +1,16 @@
 package com.halum.mobileservices;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import static com.halum.mobileservices.Constants.*;
 
 /**
  * Created by Halum on 1/19/2015.
@@ -21,17 +27,19 @@ public class OperatorFragment extends Fragment {
         /*Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);*/
-        if(layoutName.equals(Constants.GP))
+        if(layoutName.equals(GP))
             fragment.layout = R.layout.grameenphone;
-        else if(layoutName.equals(Constants.Airtel))
+        else if(layoutName.equals(AIRTEL))
             fragment.layout = R.layout.airtel;
-        else if(layoutName.equals(Constants.BLink))
+        else if(layoutName.equals(BLINK))
             fragment.layout = R.layout.banglalink;
-        else if(layoutName.equals(Constants.Robi))
+        else if(layoutName.equals(ROBI))
             fragment.layout = R.layout.robi;
-        else if(layoutName.equals(Constants.TTalk))
+        else if(layoutName.equals(TTALK))
             fragment.layout = R.layout.teletalk;
-        
+        else if(layoutName.equals(BANKS))
+            fragment.layout = R.layout.banks;
+
         return fragment;
     }
 
@@ -41,7 +49,7 @@ public class OperatorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(this.layout, container, false);
-        return rootView;
+        View tabContent = inflater.inflate(this.layout, null);
+        return tabContent;
     }
 }
